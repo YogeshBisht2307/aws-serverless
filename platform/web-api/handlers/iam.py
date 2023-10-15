@@ -1,14 +1,17 @@
-import json
-import logging
+from common.base import Logger
+from common.base import send_success_code
+from common.middleware import webuser_required
+
 
 from flask import Blueprint
-from flask import Response
 
-
+logger = Logger("IAMController")
 bp_iam = Blueprint('contents', __name__, url_prefix='/iam')
 
 
 @bp_iam.route('/users', methods=["GET"])
-def get_iam_users():
-    return Response(json.dumps({"status": "SUCCESS"}), status=200)
+@webuser_required
+def get_iam_users(auth: dict):
+    return send_success_code()
+
 

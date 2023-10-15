@@ -39,7 +39,7 @@ def api_middleware(handler, event, context):
     return response
 
 
-def appuser_required(handler: Callable):
+def webuser_required(handler: Callable):
     @wraps(handler)
     def decorated(*args: tuple, **kwargs: dict) -> Callable:
 
@@ -53,7 +53,7 @@ def appuser_required(handler: Callable):
         try:
             payload = jwt.decode(
                 access_token,
-                secret.get_jwt_secret(SecretsNameEnum.APP_JWT_CREDS.name),
+                secret.get_jwt_secret(SecretsNameEnum.WEB_JWT_CREDS.name),
                 algorithms=["HS256"]
             )
         except Exception as e:
