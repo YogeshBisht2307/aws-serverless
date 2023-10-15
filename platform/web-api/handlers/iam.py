@@ -6,7 +6,7 @@ from common.middleware import webuser_required
 from flask import Blueprint
 
 logger = Logger("IAMController")
-bp_iam = Blueprint('contents', __name__, url_prefix='/iam')
+bp_iam = Blueprint('iam', __name__, url_prefix='/iam')
 
 
 @bp_iam.route('/users', methods=["GET"])
