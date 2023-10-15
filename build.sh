@@ -63,6 +63,9 @@ create_external_handlers_zip () {
             # Move that zip file into the build directory
             mv "${dir%/}.zip" "../../../$destination_folder"
 
+            # uninstall dependencies
+            pip uninstall -r requirements.txt -t .
+
             # Navigate back to the external directory
             cd ..
         fi
