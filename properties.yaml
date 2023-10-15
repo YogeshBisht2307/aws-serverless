@@ -1,0 +1,11 @@
+Properties:
+  Region:
+    in:
+     region_name: "us"
+     region_value: "us-east-2"
+     postgresql_availability_zone: "us-east-2a"
+
+  Stage:
+    test:
+      branch: "release/v0"
+      tfvars: "testing.tfvars"
